@@ -13,16 +13,17 @@
 <script>
 
 export default {
-  name: 'Signup'
+  name: 'Signup',
+  methods: {
+      signUp() {
+          // Within this method:
+          // make a call to the api @ 
+          //    api/users as a POST request 
+          // make this request using axios
+      }
+  }
 }
 </script>
 
 <style scoped>
-.signupForm {
-    display:block;
-}
-
-label {
-    display: inline-block;
-}
 </style>
