@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 
 export default {
   name: 'Signup',
@@ -23,28 +23,27 @@ export default {
       gender: '',
       phone: '',
       sex: ''
-    }
+    };
   },
   methods: {
     signUp () {
-      console.log('here')
       const data = {
         name: this.name,
         email: this.email,
         phone: this.phone,
         gender: this.gender,
         password: this.password
-      }
+      };
       axios.post('http://localhost:8080/api/users', data)
         .then(function (response) {
-          console.log(response)
+          console.log(response);
         })
         .catch(function (err) {
-          console.log(err)
-        })
+          console.log(err);
+        });
     }
   }
-}
+};
 </script>
 
 <style scoped>

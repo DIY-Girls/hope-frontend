@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 
 export default {
   name: 'UserProfile',
@@ -37,7 +37,7 @@ export default {
       newContactEmail: '',
       newContactPhone: '',
       hopeDeviceId: ''
-    }
+    };
   },
   methods: {
     async addContact () {
@@ -45,7 +45,7 @@ export default {
         name: this.newContactName,
         email: this.newContactEmail,
         phone: this.newContactPhone
-      }
+      };
 
       const data = {
         name: this.name,
@@ -53,10 +53,10 @@ export default {
         phone: this.phone,
         gender: this.gender,
         emergencyContacts: [newContact]
-      }
+      };
 
-      const response = await axios.post('http://localhost:8080/api/users/5e27cf152a9cea2f09e7e311', data)
-      console.log(response)
+      const response = await axios.post('http://localhost:8080/api/users/5e38f1a9bf3dda4ac66a9c45', data);
+      console.log(response);
     },
     async saveChanges () {
       const data = {
@@ -65,22 +65,22 @@ export default {
         phone: this.phone,
         gender: this.gender,
         emergencyContacts: []
-      }
+      };
 
-      const response = await axios.post('http://localhost:8080/api/users/5e27cf152a9cea2f09e7e311', data)
-      console.log(response)
+      const response = await axios.post('http://localhost:8080/api/users/5e38f1a9bf3dda4ac66a9c45', data);
+      console.log(response);
     }
   },
   async beforeMount () {
-    const response = await axios.get('http://localhost:8080/api/users/5e27cf152a9cea2f09e7e311')
-    const data = response.data.data
-    this.name = data.name
-    this.email = data.email
-    this.phone = data.phone
-    this.gender = data.gender
-    this.emergencyContacts = data.emergency_contacts
+    const response = await axios.get('http://localhost:8080/api/users/5e27cf152a9cea2f09e7e311');
+    const data = response.data.data;
+    this.name = data.name;
+    this.email = data.email;
+    this.phone = data.phone;
+    this.gender = data.gender;
+    this.emergencyContacts = data.emergency_contacts;
   }
-}
+};
 </script>
 
 <style scoped>
