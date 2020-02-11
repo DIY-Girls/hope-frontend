@@ -3,11 +3,22 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <button v-on:click="logout">Logout</button>
     </div>
     <router-view/>
   </div>
 </template>
-
+<script>
+export default {
+  name: 'App',
+  methods: {
+    logout () {
+      localStorage.email = '';
+      this.$router.push({ name: 'login' });
+    }
+  }
+};
+</script>
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
