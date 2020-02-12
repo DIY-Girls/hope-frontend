@@ -14,6 +14,7 @@ export default {
   methods: {
     logout () {
       localStorage.email = '';
+      localStorage.userId = '';
       this.$router.push({ name: 'login' });
     }
   }
