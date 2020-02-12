@@ -26,8 +26,9 @@ export default {
         password: this.password
       };
       try {
-        await axios.post('http://localhost:8080/api/auth/login', data);
+        const response = await axios.post('http://localhost:8080/api/auth/login', data);
         localStorage.setItem('email', this.email);
+        localStorage.setItem('userId', response.data.userId);
         this.$router.push({ name: '/' });
       } catch (error) {
         console.log(error.response);
