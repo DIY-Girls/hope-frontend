@@ -9,6 +9,7 @@ module.exports = {
   ],
   rules: {
     'semi': ["error", "always"],
+    'no-undef': ["off", "always"],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   },
