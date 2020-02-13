@@ -8,7 +8,8 @@
         <hr>
         <label>Emergency Contacts: </label>
         <div class="eContacacts" v-for="(contact, index) in emergencyContacts" v-bind:key="index">
-          {{contact.name}} | {{ contact.email }} || {{ contact.phone }}
+          {{contact.name}} | {{ contact.email }} | {{ contact.phone }}
+          <img v-on:click="deleteContact(contact.email)" src="../assets/delete_icon.png" height="20px" width="20px"/>
         </div>
         <label><strong>Add Contact</strong></label>
         <input type="text" v-model="newContactName" name="newContactName" placeholder="Name"/>
@@ -41,21 +42,15 @@ export default {
   },
   methods: {
     async addContact () {
-      const newContact = {
+      const userId = localStorage.getItem('userId');
+      const data = {
+        user_id: userId,
         name: this.newContactName,
         email: this.newContactEmail,
         phone: this.newContactPhone
       };
 
-      const data = {
-        name: this.name,
-        email: this.email,
-        phone: this.phone,
-        gender: this.gender,
-        emergencyContacts: [newContact]
-      };
-
-      const response = await axios.post('http://localhost:8080/api/users/5e38f1a9bf3dda4ac66a9c45', data);
+      const response = await axios.post('http://localhost:8080/api/users/add_contact', data);
       console.log(response);
     },
     async saveChanges () {
@@ -63,16 +58,27 @@ export default {
         name: this.name,
         email: this.email,
         phone: this.phone,
-        gender: this.gender,
-        emergencyContacts: []
+        gender: this.gender
       };
 
       const response = await axios.post('http://localhost:8080/api/users/5e38f1a9bf3dda4ac66a9c45', data);
       console.log(response);
+    },
+    async deleteContact (email) {
+      const userId = localStorage.getItem('userId');
+      console.log(email);
+      const data = {
+        email,
+        user_id: userId
+      };
+      console.log('http://localhost:8080/api/users/delete_contact');
+      const response = await axios.post('http://localhost:8080/api/users/delete_contact', data);
+      console.log(response);
     }
   },
   async beforeMount () {
-    const response = await axios.get('http://localhost:8080/api/users/5e27cf152a9cea2f09e7e311');
+    const userId = localStorage.getItem('userId');
+    const response = await axios.get('http://localhost:8080/api/users/' + userId);
     const data = response.data.data;
     this.name = data.name;
     this.email = data.email;
