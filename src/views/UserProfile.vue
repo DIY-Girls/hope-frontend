@@ -8,7 +8,8 @@
         <hr>
         <label>Emergency Contacts: </label>
         <div class="eContacacts" v-for="(contact, index) in emergencyContacts" v-bind:key="index">
-          {{contact.name}} | {{ contact.email }} | {{ contact.phone }}
+          <!-- {{contact.name}} | {{ contact.email }} | {{ contact.phone }} -->
+          <EmergencyContact v-bind:name="contact.name" :email="contact.email" :phone="contact.phone" :key="contact.email" />
           <img v-on:click="deleteContact(contact.email)" src="../assets/delete_icon.png" height="20px" width="20px"/>
         </div>
         <label><strong>Add Contact</strong></label>
@@ -25,8 +26,13 @@
 <script>
 import axios from 'axios';
 
+import EmergencyContact from '../components/EmergencyContact';
+
 export default {
   name: 'UserProfile',
+  components: {
+    EmergencyContact
+  },
   data () {
     return {
       name: '',
@@ -40,6 +46,17 @@ export default {
       hopeDeviceId: ''
     };
   },
+  computer: {
+    emergencyContacts: {
+      get: function () {
+        console.log('This is gettning called.. ');
+        return this.emergencyContacts;
+      },
+      set: function () {
+        return this.emergencyContacts;
+      }
+    }
+  },
   methods: {
     async addContact () {
       const userId = localStorage.getItem('userId');
@@ -51,7 +68,7 @@ export default {
       };
 
       const response = await axios.post('http://localhost:8080/api/users/add_contact', data);
-      console.log(response);
+      this.emergencyContacts = response.data.emergencyContacts;
     },
     async saveChanges () {
       const data = {
@@ -73,7 +90,7 @@ export default {
       };
       console.log('http://localhost:8080/api/users/delete_contact');
       const response = await axios.post('http://localhost:8080/api/users/delete_contact', data);
-      console.log(response);
+      this.emergencyContacts = response.data.emergencyContacts;
     }
   },
   async beforeMount () {
