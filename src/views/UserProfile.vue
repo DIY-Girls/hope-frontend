@@ -59,38 +59,49 @@ export default {
   },
   methods: {
     async addContact () {
-      const userId = localStorage.getItem('userId');
-      const data = {
-        user_id: userId,
-        name: this.newContactName,
-        email: this.newContactEmail,
-        phone: this.newContactPhone
-      };
-
-      const response = await axios.post('http://localhost:8080/api/users/add_contact', data);
-      this.emergencyContacts = response.data.emergencyContacts;
+      try {
+        const userId = localStorage.getItem('userId');
+        const data = {
+          user_id: userId,
+          name: this.newContactName,
+          email: this.newContactEmail,
+          phone: this.newContactPhone
+        };
+        const response = await axios.post('http://localhost:8080/api/users/add_contact', data);
+        this.emergencyContacts = response.data.emergencyContacts;
+      } catch (error) {
+        console.log(error.response);
+      }
     },
     async saveChanges () {
-      const data = {
-        name: this.name,
-        email: this.email,
-        phone: this.phone,
-        gender: this.gender
-      };
-
-      const response = await axios.post('http://localhost:8080/api/users/5e38f1a9bf3dda4ac66a9c45', data);
-      console.log(response);
+      try {
+        const data = {
+          name: this.name,
+          email: this.email,
+          phone: this.phone,
+          gender: this.gender
+        };
+  
+        const response = await axios.post('http://localhost:8080/api/users/5e38f1a9bf3dda4ac66a9c45', data);
+        console.log(response);
+      } catch (error) {
+        console.log(error.response);
+      }
     },
     async deleteContact (email) {
-      const userId = localStorage.getItem('userId');
-      console.log(email);
-      const data = {
-        email,
-        user_id: userId
-      };
-      console.log('http://localhost:8080/api/users/delete_contact');
-      const response = await axios.post('http://localhost:8080/api/users/delete_contact', data);
-      this.emergencyContacts = response.data.emergencyContacts;
+      try {
+        const userId = localStorage.getItem('userId');
+        console.log(email);
+        const data = {
+          email,
+          user_id: userId
+        };
+        console.log('http://localhost:8080/api/users/delete_contact');
+        const response = await axios.post('http://localhost:8080/api/users/delete_contact', data);
+        this.emergencyContacts = response.data.emergencyContacts;
+      } catch (error) {
+        console.log(error.response);
+      }
     }
   },
   async beforeMount () {
