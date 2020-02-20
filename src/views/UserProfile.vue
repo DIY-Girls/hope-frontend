@@ -81,7 +81,6 @@ export default {
           phone: this.phone,
           gender: this.gender
         };
-  
         const response = await axios.post('http://localhost:8080/api/users/5e38f1a9bf3dda4ac66a9c45', data);
         console.log(response);
       } catch (error) {
