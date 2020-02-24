@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+import Home from '../views/Home';
+import Dashboard from '../views/Dashboard.vue';
 import SignUp from '../views/Signup.vue';
 import Login from '../views/Login.vue';
 import UserProfile from '../views/UserProfile.vue';
@@ -12,6 +13,14 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home,
+    meta: {
+      authRequied: false
+    }
+  },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: Dashboard,
     meta: {
       authRequired: true
     }
@@ -58,6 +67,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const email = localStorage.email;
+  console.log(to.meta);
   if (to.matched.some(record => record.meta.authRequired) && email === '') {
     next('/login');
   } else {

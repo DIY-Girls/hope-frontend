@@ -21,15 +21,15 @@ export default {
   },
   methods: {
     async login () {
-      const data = {
-        email: this.email,
-        password: this.password
-      };
       try {
+        const data = {
+          email: this.email,
+          password: this.password
+        };
         const response = await axios.post('http://localhost:8080/api/auth/login', data);
         localStorage.setItem('email', this.email);
         localStorage.setItem('userId', response.data.userId);
-        this.$router.push({ name: '/' });
+        this.$router.push({ name: 'dashboard' });
       } catch (error) {
         console.log(error.response);
         this.errorMessage = error.response.data.message;
