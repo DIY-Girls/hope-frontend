@@ -7,7 +7,7 @@
 <script>
 import axios from 'axios';
 export default {
-  name: 'home',
+  name: 'dashboard',
   async mounted () {
     const res = await axios.get('https://location.services.mozilla.com/v1/geolocate?key=test');
     const lat = res.data.location.lat;
