@@ -26,7 +26,7 @@ export default {
           email: this.email,
           password: this.password
         };
-        const response = await axios.post('http://localhost:8080/api/auth/login', data);
+        const response = await axios.post('https://obscure-ridge-56951.herokuapp.com/api/auth/login', data);
         localStorage.setItem('email', this.email);
         localStorage.setItem('userId', response.data.userId);
         this.$router.push({ name: 'dashboard' });

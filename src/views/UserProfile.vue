@@ -35,6 +35,7 @@ export default {
   },
   data () {
     return {
+      userId: '',
       name: '',
       email: '',
       phone: '',
@@ -67,7 +68,7 @@ export default {
           email: this.newContactEmail,
           phone: this.newContactPhone
         };
-        const response = await axios.post('http://localhost:8080/api/users/add_contact', data);
+        const response = await axios.post('https://obscure-ridge-56951.herokuapp.com/api/users/add_contact', data);
         this.emergencyContacts = response.data.emergencyContacts;
       } catch (error) {
         console.log(error.response);
@@ -81,7 +82,7 @@ export default {
           phone: this.phone,
           gender: this.gender
         };
-        const response = await axios.post('http://localhost:8080/api/users/5e38f1a9bf3dda4ac66a9c45', data);
+        const response = await axios.post('https://obscure-ridge-56951.herokuapp.com/api/users/' + this.userId, data);
         console.log(response);
       } catch (error) {
         console.log(error.response);
@@ -95,8 +96,7 @@ export default {
           email,
           user_id: userId
         };
-        console.log('http://localhost:8080/api/users/delete_contact');
-        const response = await axios.post('http://localhost:8080/api/users/delete_contact', data);
+        const response = await axios.post('https://obscure-ridge-56951.herokuapp.com/api/users/delete_contact', data);
         this.emergencyContacts = response.data.emergencyContacts;
       } catch (error) {
         console.log(error.response);
@@ -104,14 +104,18 @@ export default {
     }
   },
   async beforeMount () {
-    const userId = localStorage.getItem('userId');
-    const response = await axios.get('http://localhost:8080/api/users/' + userId);
-    const data = response.data.data;
-    this.name = data.name;
-    this.email = data.email;
-    this.phone = data.phone;
-    this.gender = data.gender;
-    this.emergencyContacts = data.emergency_contacts;
+    this.userId = localStorage.getItem('userId');
+    try {
+      const response = await axios.get('https://obscure-ridge-56951.herokuapp.com/api/users/' + this.userId);
+      const data = response.data.data;
+      this.name = data.name;
+      this.email = data.email;
+      this.phone = data.phone;
+      this.gender = data.gender;
+      this.emergencyContacts = data.emergency_contacts;
+    } catch (error) {
+      console.log(error.response);
+    }
   }
 };
 </script>

@@ -1,5 +1,6 @@
 <template>
     <div class="formWrapper">
+      <p style="background:red; color: white;">{{ errorMessage }}</p>
       <input v-model="name" type="text" name="name" placeholder="name">
       <input v-model="email" type="email" name="email" placeholder="Email">
       <input v-model="password" type="password" name="password" placeholder="password">
@@ -22,11 +23,12 @@ export default {
       password: '',
       gender: '',
       phone: '',
-      sex: ''
+      sex: '',
+      errorMessage: ''
     };
   },
   methods: {
-    signUp () {
+    async signUp () {
       const data = {
         name: this.name,
         email: this.email,
@@ -34,16 +36,19 @@ export default {
         gender: this.gender,
         password: this.password
       };
-      axios.post('http://localhost:8080/api/users', data)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (err) {
-          console.log(err);
-        });
+      try {
+        let response = await axios.post('http://localhost:8080/api/users', data);
+        localStorage.setItem('email', this.email);
+        localStorage.setItem('userId', response.data.userId);
+        this.$router.push({ name: 'dashboard' });
+      } catch (error) {
+        console.log(error.response);
+        this.errorMessage = error.response.data.message;
+      }
     }
   }
 };
+
 </script>
 
 <style scoped>
