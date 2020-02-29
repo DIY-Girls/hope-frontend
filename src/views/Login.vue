@@ -33,6 +33,9 @@ people between the ages of 13-19.
 <div class="container">
 <img src="../assets/avatar.png" alt="Avatar" class="avatar center" >
 <br>
+<p class="errorMessage">
+{{errorMessage}}
+</p>
 <label for="uname">
 <b>Email</b>
 </label>
@@ -129,7 +132,10 @@ width: 50%;
 padding: 10px;
 height: 650px; /* Should be removed. Only for demonstration */
 }
-
+.errorMessage
+{
+color: red;
+}
 /* Clear floats after the columns */
 .row:after 
 {
