@@ -36,14 +36,14 @@ people between the ages of 13-19.
 <label for="uname">
 <b>Email</b>
 </label>
-<input type="text" placeholder="Email" name="Email" required>
+<input v-model="email" type="text" placeholder="Email" name="Email" required>
 
 <label for="psw">
 <b>Password</b>
 </label>
-<input type="password" placeholder="Enter Password" name="psw" required>
+<input v-model="password" type="password" placeholder="Enter Password" name="psw" required>
 
-<button type="submit">
+<button @click="login" type="submit">
 Login
 </button>
 
