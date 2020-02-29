@@ -67,9 +67,10 @@ password?
 </a>
 <br>
 Don't have an Account?
-<a href="index.html">
-Sign-Up
-</a>
+<!-- <a href="index.html"> -->
+<!-- Sign-Up -->
+<!-- </a> -->
+<router-link to="/signup">Sign-Up</router-link>
 </span>
 </div>
 </div>
