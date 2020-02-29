@@ -1,6 +1,7 @@
 <template>
   <div>
     <p style="background:red; color: white;">{{ errorMessage }}</p>
+    <p> hello world </p>
     <input v-model="email" name="email" placeholder="email">
     <input v-model="password" name="password" placeholder="password">
     <button v-on:click="login">Login</button>
