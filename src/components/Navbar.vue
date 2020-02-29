@@ -4,6 +4,7 @@
         <router-link to="/dashboard">Dashboard</router-link>
         <router-link to="/about">About</router-link>
         <router-link to="/profile">Profile</router-link>
+        <router-link to="/login">Login</router-link>
         <button v-on:click="logout">Logout</button>
     </div>
 </template>
