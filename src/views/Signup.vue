@@ -1,14 +1,144 @@
 <template>
-    <div class="formWrapper">
-      <p style="background:red; color: white;">{{ errorMessage }}</p>
-      <input v-model="name" type="text" name="name" placeholder="name">
-      <input v-model="email" type="email" name="email" placeholder="Email">
-      <input v-model="password" type="password" name="password" placeholder="password">
-      <input v-model="phone" type="text" name="phone" placeholder="phone">
-      <input v-model="sex" type="text" name="sex" placeholder="sex">
-      <input v-model="gender" type="text" name="gender" placeholder="gender">
-      <button v-on:click="signUp">Submit</button>
-    </div>
+<body>
+<div class='formwrapper'>
+<img src="logo.png" alt="logo" width = "200px"  height= "200px">
+​
+ <div class="field">
+  
+  <label class="label is-small">
+  <label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-small" type="email" placeholder="First name">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </div>
+</div>
+​
+ <div class="field">
+  <label class="label is-small"></label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-small" type="email" placeholder="Last name">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </div>
+</div>
+ <div class="field">
+  <label class="label is-small"></label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-small" type="email" placeholder="Email">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </div>
+</div>
+ <div class="field">
+  <label class="label is-small"></label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-small" type="email" placeholder="password">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </div>
+</div>
+ <div class="field">
+  <label class="label is-small"></label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-small" type="email" placeholder="D/O/B">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </div>
+</div>
+ <div class="field">
+  <label class="label is-small"></label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-small" type="email" placeholder="Sex">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </div>
+</div>
+​
+ <div class="field">
+  <label class="label is-small"></label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-small" type="email" placeholder="Gender">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </div>
+</div>
+ <div class="field">
+  <label class="label is-small"></label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-small" type="email" placeholder="Address">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </div>
+</div>
+​
+​
+	
+	<div align= "center">
+	<!--<input form="customer_name" type="submit" value="Submit">-->
+	<button> submit  </button>
+	<div id="result"></div>
+	<!-- <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+​
+<script>
+ 
+ 
+ $(document).ready(function(){
+ $("button").click(function(){
+	$.post("https://obscure-ridge-56951.herokuapp.com/api/users",
+	{ 
+		name: "kiara", 
+		gender: "boy",
+		phone: "81869993",
+		email: "@itsmekiara.buuhh",
+	
+	
+	},
+	function(data, status){
+   console.log("data")
+   console.log(data)
+	}) 
+	})
+ })
+ </script> -->
+ 
+	<!--</form>-->
+	</body>
 </template>
 
 <script>
