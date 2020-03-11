@@ -1,10 +1,96 @@
-<template> <div>
-    <div class="about">
-        <h1>This is an about page</h1>
-    </div>
+, <template> <div>
+<div class="about">
+<h1>This is an about page</h1>
+</div>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+box-sizing:border-box;
+}
+
+body {
+margin: 0;
+font-family: Lato, san-serif;
+}
+
+.container {
+padding: 64px;
+}
+
+.row:after {
+content: "";
+display: table;
+clear: both
+}
+
+.right {
+float: right;
+width: 580px;
+padding: 10px;
+font-family: "Lato", sans-serif;
+color: #777;
+}
+
+.right2{
+float: right;
+width: 550px;
+padding: 10px;
+font-family: "Lato", sans-serif;
+color: #777;
+}
+.column-66 {
+float: left;
+width: 67.777777%;
+padding: 5px;
+font-family: "Lato", sans-serif;
+color: #777;
+}
+
+.column-33 {
+float: left;
+width: 35.555555%;
+padding: 20px;
+}
+
+.large-font {
+font-size: 48px;
+}
+
+.xlarge-font {
+font-size: 64px
+}
+
+.button {
+border: none;
+color: white;
+padding: 14px 28px;
+font-size: 16px;
+cursor: pointer;
+background-color: #4CAF50;
+}
+img {
+display: block;
+height: auto;
+max-width: 100%;
+}
+@media screen and (max-width: 1000px) {
+.column-66,
+.column-33 {
+width: 100%;
+text-align: center;
+}
+img {
+margin: auto;
+}
+}
+</style>
+</head>
+<body>
     <!-- The App Section -->
     <!-- The App Section -->
-    <center><iframe src="https://drive.google.com/file/d/1P91y6xYNlbjtEJjk_B-5-lKC9CbU1dZH/preview" width="640" height="480"></iframe></center>
+    <center><iframe src="https://drive.google.com/file/d/1P91y6xYNlbjtEJjk_B-5-lKC9CbU1dZH/preview" width="100" height="100"></iframe></center>
 <div class="container">
 <div class="row">
     <h1 class="xlarge-font" style="color: #00000; text-shadow: 2px 2px #f3e6fc"><b>Mission Statement</b></h1>
@@ -23,7 +109,7 @@
 <div class="container" style="background-color:#f3e6fc">
 <div class="row">
 <div class="column-33">
-    <iframe src="https://drive.google.com/file/d/115Kg9Ok0pOGsoX79Amjf3ZXS-t_QbV5u/preview" width="600" height="500"></iframe>
+    <iframe src="https://drive.google.com/file/d/115Kg9Ok0pOGsoX79Amjf3ZXS-t_QbV5u/preview" width="100" height="100"></iframe>
 </div>
 <div class="column-66">
 <div class="right">
@@ -51,7 +137,7 @@
     <!-- <button class="button">Download Application</button> -->
 </div>
 <div class="column-33">
-    <iframe src="https://drive.google.com/file/d/1dFS9zVSAVQYHziKKLzO4qX3sDywyhT1I/preview" width="450" height="480"></iframe>
+    <iframe src="https://drive.google.com/file/d/1dFS9zVSAVQYHziKKLzO4qX3sDywyhT1I/preview" width="100" height="100"></iframe>
 </div>
 </div>
 </div>
@@ -67,7 +153,7 @@
         <h1 class="large-font" style="color:#FFFFFF; text-shadow:2px 2px #000000"><b>The Neighborhood</b></h1>
         <p>
             As an all-female Invent-Team living in the San Fernando Valley, many of us have experienced discomfort by the mere thought of walking home after practice in the late afternoon. Women and young girls should feel safe in
-            their community and our device will give them an added level of security
+            their community and our device will ggit pushive them an added level of security
             they’ve never had before. With the alarming occurrences we hear on the
             news about young women being abducted for sex-trafficking, rape, or
             torture, we are concerned that at any moment, that young girl on the
