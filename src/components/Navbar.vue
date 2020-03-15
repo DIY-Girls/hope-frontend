@@ -1,12 +1,18 @@
 <template>
-    <div id="nav">
-        <router-link to="/">Home</router-link>
-        <router-link to="/dashboard">Dashboard</router-link>
-        <router-link to="/about">About</router-link>
-        <router-link to="/profile">Profile</router-link>
-        <router-link to="/login">Login</router-link>
-        <button v-on:click="logout">Logout</button>
-    </div>
+    <div class="icon-bar" id="nav">
+    <img src="../assets/logo.png" alt="logo" class="logo" style="float:left; width:150px; height:70px;">
+    <router-link class="fa fa-home" to="/"> Home </router-link>
+    <router-link class="fa fa-map-marker" to="/dashboard"> Dashboard </router-link>
+      <router-link class="fa fa-institution" to="/about"> About </router-link>
+    <template v-if="login==='email'">
+        <button v-on:click="logout" class="fa fa-sign-out" style="float:right; width:150px; height: 70px; font-color:#f3e6fc; font-size:20px; background-color: black; color: #f3e6fc;"> Logout </button>
+        <router-link style="float:right" class="fa fa-user" to="/profile"> Profile </router-link>
+    </template>
+    <template v-else>
+        <router-link class="fa fa-sign-in" style="float:right" to="/login"> Login </router-link>
+        <router-link class="fa fa-pencil" style="float:right" to="/signup"> Sign-Up </router-link>
+    </template>
+  </div>
 </template>
 
 <script>
@@ -20,19 +26,28 @@ export default {
     }
   }
 };
+
 </script>
 
 <style scoped>
 #nav {
-  padding: 30px;
+overflow: hidden;
+background-color: #f3e6fc;
 }
 
 #nav a {
-  font-weight: bold;
-  color: #2c3e50;
+float: left;
+color: black;
+text-align: center;
+padding: 25px;
+text-decoration: none;
+font-size: 20px;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+#nav a:hover {
+background-color: black;
+color: #f3e6fc;
+}
+#nav a.active {
+background-color: #f3e6fc;
 }
 </style>
