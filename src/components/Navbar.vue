@@ -4,13 +4,13 @@
     <router-link class="fa fa-home" to="/"> Home </router-link>
     <router-link class="fa fa-map-marker" to="/dashboard"> Dashboard </router-link>
       <router-link class="fa fa-institution" to="/about"> About </router-link>
-    <template v-if="login==='email'">
-        <button v-on:click="logout" class="fa fa-sign-out" style="float:right; width:150px; height: 70px; font-color:#f3e6fc; font-size:20px; background-color: black; color: #f3e6fc;"> Logout </button>
-        <router-link style="float:right" class="fa fa-user" to="/profile"> Profile </router-link>
+      <router-link style="float:right" class="fa fa-user" to="/profile"> Profile </router-link>
+    <template v-if="email===''">
+        <router-link v-show="logggedout" class="fa fa-sign-in" style="float:right" to="/login"> Login </router-link>
+        <router-link v-show="loggedout" class="fa fa-pencil" style="float:right" to="/signup"> Sign-Up </router-link>
     </template>
     <template v-else>
-        <router-link class="fa fa-sign-in" style="float:right" to="/login"> Login </router-link>
-        <router-link class="fa fa-pencil" style="float:right" to="/signup"> Sign-Up </router-link>
+        <button v-show="login" v-on:click="logout" class="fa fa-sign-out" style="float:right; width:150px; height: 70px; font-color:#f3e6fc; font-size:20px; background-color: black; color: #f3e6fc;"> Logout </button>
     </template>
   </div>
 </template>
