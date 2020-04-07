@@ -2,7 +2,7 @@
   <div class="about">
     <h1>This is an about page</h1>
     <center>
-      <!-- <img src ="../assets/logo.png" alt="default" class="default center"> -->
+      <img src ="../assets/logo.png" alt="default" class="default center">
     </center>
     <div class="container">
       <div class="row">
@@ -27,7 +27,7 @@
     <div class="container" style="background-color:#f3e6fc">
       <div class="row">
         <div class="column-33">
-          <!-- <img src ="../assets/team.png" alt="group" class="group center"> -->
+          <img src ="../assets/team.png" alt="group" class="group center">
         </div>
         <div class="column-66">
           <div class="right">
@@ -61,7 +61,7 @@
 <!-- <button class="button">Download Application</button> -->
         </div>
         <div class="column-33">
-          <!-- <img src ="../assets/design.png" alt="design" class="design center"> -->
+          <img src ="../assets/design.png" alt="design" class="design center">
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@
             <div class="column-33"></div>
                 <div class="column-66"></div>
                     <div class="right"></div>
-      <h1 class="large-font" style="color:#FFFFFF; text-shadow:2px 2px #000000">
+      <h1 class="large-font" style="color:#ffffff; text-shadow:2px 2px #000000">
         <b>The Neighborhood</b>
       </h1>
     </div>
@@ -87,6 +87,65 @@
 
 <script>
 </script>
-
+<script>
+</script>
+​
 <style scoped>
+* {
+box-sizing:border-box;
+}
+body {
+margin: 0;
+font-family: Lato, san-serif;
+}
+.container {
+padding: 64px;
+}
+.row:after {
+content: "";
+display: table;
+clear: both
+}
+.column-66 {
+float: left;
+width: 66.66666%;
+padding: 20px;
+font-family: "Lato", sans-serif;
+color: #777;
+}
+.column-33 {
+float: left;
+width: 33.33333%;
+padding: 20px;
+}
+.large-font {
+font-size: 48px;
+}
+.xlarge-font {
+font-size: 64px
+}
+.button {
+border: none;
+color: white;
+padding: 14px 28px;
+font-size: 16px;
+cursor: pointer;
+background-color: #4CAF50;
+}
+img {
+display: block;
+height: auto;
+max-width: 100%;
+}
+@media screen and (max-width: 1000px) {
+.column-66,
+.column-33 {
+width: 100%;
+text-align: center;
+}
+img {
+margin: auto;
+}
+}
+
 </style>
