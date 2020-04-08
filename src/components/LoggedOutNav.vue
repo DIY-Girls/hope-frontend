@@ -1,22 +1,17 @@
 <template>
   <div class="icon-bar" id="nav">
-    <div v-if="!email">
-      <LoggedOutNav.vue />
-    </div>
-    <div v-else>
-      <LoggedInNav />
-    </div>
+    <img src="../assets/logo.png" alt="logo" class="logo">
+    <router-link class="fa fa-home" to="/"> Home </router-link>
+    <router-link class="fa fa-map-marker" to="/dashboard"> Dashboard </router-link>
+    <router-link class="fa fa-institution" to="/about"> About </router-link>
+    <router-link class="fa fa-sign-in" style="float:right" to="/login"> Login </router-link>
+    <router-link class="fa fa-pencil" style="float:right" to="/signup"> Sign-Up </router-link>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Navbar',
-  data () {
-    return {
-      email: ''
-    };
-  },
   methods: {
     logout () {
       localStorage.email = '';
@@ -24,13 +19,8 @@ export default {
       this.email = '';
       this.$router.push({ name: 'login' });
     }
-  },
-  beforeMount () {
-    console.log(this.email);
-    this.email = localStorage.email;
   }
 };
-
 </script>
 
 <style scoped>
@@ -67,25 +57,5 @@ img.logo {
     float: none;
     display: block;
   }
-}
-.button1 {
-  border: none;
-  padding: 22.5px 20px;
-  text-align:center;
-  text-decoration:none;
-  font-size: 20px;
-  display: inline-box; 
-  cursor: pointer;
-  border-radius:0px;
-  width: 125px; 
-  height: 65px; 
-  float: right;
-  background-color: black;
-  color: #f3e6fc;
-}
-
-.button1:hover {
-  background-color: #f3e6fc;
-  color: black;
 }
 </style>

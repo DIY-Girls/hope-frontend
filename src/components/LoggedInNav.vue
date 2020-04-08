@@ -1,22 +1,17 @@
 <template>
   <div class="icon-bar" id="nav">
-    <div v-if="!email">
-      <LoggedOutNav.vue />
-    </div>
-    <div v-else>
-      <LoggedInNav />
-    </div>
+    <img src="../assets/logo.png" alt="logo" class="logo">
+    <router-link class="fa fa-home" to="/"> Home </router-link>
+    <router-link class="fa fa-map-marker" to="/dashboard"> Dashboard </router-link>
+    <router-link class="fa fa-institution" to="/about"> About </router-link>
+    <button class="button button1" v-on:click="logout"><i class="fa fa-sign-out"> Logout </i></button>
+    <router-link style="float:right" class="fa fa-user" to="/profile"> Profile </router-link>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Navbar',
-  data () {
-    return {
-      email: ''
-    };
-  },
   methods: {
     logout () {
       localStorage.email = '';
@@ -24,13 +19,8 @@ export default {
       this.email = '';
       this.$router.push({ name: 'login' });
     }
-  },
-  beforeMount () {
-    console.log(this.email);
-    this.email = localStorage.email;
   }
 };
-
 </script>
 
 <style scoped>
