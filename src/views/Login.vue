@@ -1,11 +1,13 @@
 <template>
   <div class="cont">
-    <div class="form sign-in">
-      <h2>Welcome back</h2>
+    <div class="form has-background-logo">
+      <h2 class="is-size-1.5">Welcome back</h2>
       <br>
-      <img src="../assets/avatar.png" alt="Avatar" class="avatar center" >
+      <figure class="image container is-128x128">
+        <img class="is-rounded has-image-centered" src="../assets/avatar.png" alt="Avatar">
+      </figure>
       <br>
-      <p class="errorMessage"> {{errorMessage}} </p>
+      <p class="has-background-danger has-text-white-bis"> {{errorMessage}} </p>
       <label for="uname">
         <span> Email </span>
         <br>
@@ -18,7 +20,7 @@
       </label>
       <br>
       <label>
-      <button @click="login" id="login-button" class="login-button center" type="submit"><i class="fa fa-sign-in"> Login </i></button>
+      <button @click="login" id="login-button" class="button is-black is-rounded" type="submit"><i class="fa fa-sign-in"> Login </i></button>
       <br>
       <p class="forgot-pass"> Forgot Password? </p>
       </label>
@@ -28,13 +30,13 @@
     <div class="sub-cont">
       <div class="img">
         <div class="img__text m-up">
-          <div class="transbox">
-            <h2> New Here to </h2>
+          <div class="transbox container has-background-bluish">
+            <h2 class="is-size-1.5"> New Here to </h2>
             <h1> H. O. P. E. </h1>
             <p>The SFHS STEM Magnet DIY Girls Invent Team is an all-female group made up of 22 high school students, who are determined to innovate a device designed to secure the safety and well-being of vulnerable people between the ages of 13-19. </p>
             <br>
             <br>
-            <router-link to="/signup" tag="button" id="button" class="center"><i class="fa fa-pencil"> Sign-Up </i></router-link>
+            <router-link to="/signup" tag="button" id="login-button" class="button is-black is-rounded"><i class="fa fa-pencil"> Sign-Up </i></router-link>
             <br>
           </div>
         </div>
@@ -45,7 +47,7 @@
  
 <script>
 import axios from 'axios';
- 
+
 export default {
   name: 'login',
   data () {
@@ -86,19 +88,8 @@ export default {
   }
 
 body
-  {
+{
     background: #dcbef0;
-  }
-
-img.avatar 
-  {
-    width: 30%;
-    border-radius: 50%;
-  }
-
-.errorMessage
-  {
-    color: red;
   }
 
 .cont 
@@ -109,7 +100,6 @@ img.avatar
     height: fixed;
     margin: 40px auto 100px;
     margin-bottom: 23px;
-    background: #f3e6fc;
     border: 2px solid black;
   }
 
@@ -121,6 +111,9 @@ img.avatar
     padding: 80px 30px 0;
   }
 
+.has-background-logo {background: #f3e6fc;}
+.has-background-bluish {background: #d7e9e7}
+
 .sub-cont
   {
     overflow: auto;
@@ -131,14 +124,13 @@ img.avatar
     height: 100%;
   }
 
-button, #login-button 
+#button, #login-button 
   {
     text-align: center;
     display: block;
     margin: 0 auto;
     width: 125px;
     height: 36px;
-    border-radius: 30px;
     font-size: 15px;
     cursor: pointer;
     border: 1px solid black;
@@ -152,9 +144,8 @@ button, #login-button
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     color: #f3e6fc;
-    background: black;
     font-size:15px;
-  } 
+  }
 
 button:hover, #login-button:hover 
   {
@@ -181,15 +172,6 @@ button:hover, #login-button:hover
     content: '';
   }
 
-div.form h2, div.transbox h2 
-  {
-    margin-bottom: 20px;
-    font-weight: normal;
-    width: 100%;
-    font-size: 30px;
-    text-align: center;
-  }
-
 div.form h1, div.transbox h1 
   {
     margin-bottom: 20px;
@@ -200,13 +182,12 @@ div.form h1, div.transbox h1
     text-align: center;
   }
 
-div.form p, div.transbox p 
+ div.form p, div.transbox p 
   {
     margin-bottom: 20px;
     font-weight: bold;
     width: 100%;
     font-size: 15px;
-    text-align: center;
     line-height: 1.5;
   }
 
